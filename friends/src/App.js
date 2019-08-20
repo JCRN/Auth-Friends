@@ -11,7 +11,11 @@ function App() {
       <div className="App">
         <ul>
           <li>
-            <Link to="/login">Login</Link>
+            {!localStorage.getItem('token') ? (
+              <Link to="/login">Login</Link>
+            ) : (
+              <Link to="/logout">Logout</Link>
+            )}
           </li>
           <li>
             <Link to="/protected">Friends List</Link>
