@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Card } from 'semantic-ui-react'
 
 import { FriendCard } from './FriendCard'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
@@ -21,10 +22,10 @@ export default function FriendsList(props) {
   })
 
   return (
-    <div>
-      {friends.map(friend => {
-        ;<FriendCard friend={friend} />
-      })}
-    </div>
+    <Card.Group centered>
+      {friends.map(friend => (
+        <FriendCard friend={friend} />
+      ))}
+    </Card.Group>
   )
 }

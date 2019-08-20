@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button } from 'semantic-ui-react'
 
 export default function Login(props) {
   const [credentials, setCredentials] = useState({ username: '', password: '' })
@@ -22,30 +22,27 @@ export default function Login(props) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group controlId="formBasicUsername">
-        <Form.Label>Username</Form.Label>
-        <Form.Control
+      <Form.Field>
+        <label>Username</label>
+        <input
           type="text"
           name="username"
-          placeholder="Enter username"
+          placeholder="Enter Username"
           value={credentials.username}
           onChange={handleChange}
         />
-      </Form.Group>
-
-      <Form.Group controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
+      </Form.Field>
+      <Form.Field>
+        <label>Password</label>
+        <input
           type="password"
           name="password"
           placeholder="Enter Password"
           value={credentials.password}
           onChange={handleChange}
         />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
+      </Form.Field>
+      <Button type="submit">Submit</Button>
     </Form>
   )
 }
